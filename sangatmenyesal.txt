@@ -1,0 +1,16 @@
+create table Mhs(stb varchar(10) primary key, nama varchar(30), kelas varchar(10));
+Query OK, 0 rows affected (0.098 sec)
+
+MariaDB [stb227]> create table makanan(nama_makanan varchar(10), id_makanan varchar(4), nama_minuman varchar(30)
+    -> );
+Query OK, 0 rows affected (0.116 sec)
+
+MariaDB [stb227]> alter table makanan add primary key(id_makanan);
+Query OK, 0 rows affected (0.316 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [stb227]> create table transaksi(id_transaksi varchar(4) primary key, stb varchar(10),id_makanan varchar(4), foreign key(stb) references Mhs(stb));
+Query OK, 0 rows affected (0.156 sec)
+
+MariaDB [stb227]> alter table transaksi add foreign key(id_makanan) references makanan(id_makanan);
+Query OK, 0 rows affected (0.414 sec)
